@@ -5,7 +5,7 @@ Feature: Message API Testing
 
 
 	Scenario Outline: Get all messages
-   	 	When I send a GET request to fetch all messages
-    	Then the response status should be 200
-   		And the response should contain a list of messages
+		When I send a GET request to fetch all messages
+		Then the response status should be 200
+		And the response should contain a list of messages
 
