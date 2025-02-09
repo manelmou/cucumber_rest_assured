@@ -1,4 +1,20 @@
 -------------------------------------------------------------------------------
 Test set: com.runners.TestRunner
 -------------------------------------------------------------------------------
-Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.141 s -- in com.runners.TestRunner
+Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 6.865 s <<< FAILURE! -- in com.runners.TestRunner
+Message API Testing #1.Delete a message -- Time elapsed: 3.586 s <<< FAILURE!
+java.lang.AssertionError: Expected status code 202 expected:<202> but was:<403>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at com.stepsDefinitions.DeleteMessage.the_response_status_should_be_202(DeleteMessage.java:32)
+	at ✽.the response status should be 202(file:///C:/Users/admin/eclipse-workspace/CucumberRestAssured/src/test/resources/Features/DeleteMessage.feature:10)
+
+Message API Testing #3.Retrieve a specific message -- Time elapsed: 0.241 s <<< FAILURE!
+java.lang.AssertionError: Expected status code 200 expected:<200> but was:<500>
+	at org.junit.Assert.fail(Assert.java:89)
+	at org.junit.Assert.failNotEquals(Assert.java:835)
+	at org.junit.Assert.assertEquals(Assert.java:647)
+	at com.stepsDefinitions.GetMessageId.the_response_should_contain_the_correct_message_details(GetMessageId.java:30)
+	at ✽.the response should contain the correct message details(file:///C:/Users/admin/eclipse-workspace/CucumberRestAssured/src/test/resources/Features/GetMessageId.feature:10)
+

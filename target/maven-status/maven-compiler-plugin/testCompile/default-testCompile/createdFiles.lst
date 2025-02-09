@@ -1,4 +1,6 @@
 com\stepsDefinitions\GetMessages.class
+com\stepsDefinitions\DeleteMessage.class
 com\stepsDefinitions\MessageControler.class
 com\runners\TestRunner.class
+com\stepsDefinitions\GetMessageCount.class
 com\stepsDefinitions\GetMessageId.class

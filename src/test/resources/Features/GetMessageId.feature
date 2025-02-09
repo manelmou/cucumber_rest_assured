@@ -1,7 +1,7 @@
 @suitedetestgestionmessage
 Feature: Message API Testing
 
-	Background: messages are available
+Background: messages are available
  
  
 Scenario Outline: Retrieve a specific message
