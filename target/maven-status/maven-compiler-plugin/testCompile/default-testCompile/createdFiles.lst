@@ -1,2 +1,4 @@
-com\runners\TestRunner.class
+com\stepsDefinitions\GetMessages.class
 com\stepsDefinitions\MessageControler.class
+com\runners\TestRunner.class
+com\stepsDefinitions\GetMessageId.class

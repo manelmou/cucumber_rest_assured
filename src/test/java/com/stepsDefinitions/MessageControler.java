@@ -14,6 +14,7 @@ public class MessageControler {
 
 	private Response response;
 	private static final String BASE_URL = "https://automationintesting.online/message/";
+
 	JSONObject body = new JSONObject();
 
 	@Given("I have a valid message payload with {string} and {string} and {string} and {string} and {string} and {string}")
@@ -31,14 +32,14 @@ public class MessageControler {
 
 	@When("I send a POST request to create a message")
 	public void i_send_a_post_request_to_create_a_message() {
-		Response response = RestAssured.given().contentType(ContentType.JSON).body(body.toString()).post(BASE_URL);
+		response = RestAssured.given().contentType(ContentType.JSON).body(body.toString()).post(BASE_URL);
 		response.print();
 		System.out.println("Response: " + response.getBody().asString());
 	}
 
-	@Then("the response status should be 200")
-	public void the_response_status_should_be_200() {
-		Assert.assertEquals("Expected status code 200", 200, response.getStatusCode());
+	@Then("the response status should be 201")
+	public void the_response_status_should_be_201() {
+		Assert.assertEquals("Expected status code 201", 201, response.getStatusCode());
 	}
 
 }

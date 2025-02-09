@@ -1,4 +1,4 @@
-@regression
+@suitedetestgestionmessage
 Feature: Message API Testing
 
 
@@ -8,7 +8,7 @@ Feature: Message API Testing
   Scenario Outline: Create a new message 
     Given I have a valid message payload with '<messageid>' and '<name>' and '<email>' and '<phone>' and '<subject>' and '<description>'
     When I send a POST request to create a message 
-    Then the response status should be 200
+    Then the response status should be 201
     
 Examples:
     | messageid | name      		| email              	| phone       | subject      | description            |
