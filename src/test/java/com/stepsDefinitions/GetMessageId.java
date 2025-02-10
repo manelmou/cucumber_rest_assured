@@ -4,6 +4,7 @@ import org.json.JSONObject;
 import org.junit.Assert;
 
 import com.utils.BaseTest;
+import com.utils.ConfigReader;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,7 +14,7 @@ import io.restassured.response.Response;
 
 public class GetMessageId extends BaseTest {
 	private Response response;
-	private static final String BASE_URL = "https://automationintesting.online/message/";
+	private static final String BASE_URL = ConfigReader.getBaseUrl() + "/message/";
 	private String messageId;
 	private Response responseCreate;
 	JSONObject body = new JSONObject();

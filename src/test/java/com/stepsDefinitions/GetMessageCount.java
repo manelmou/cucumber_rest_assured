@@ -3,6 +3,8 @@ package com.stepsDefinitions;
 import org.json.JSONObject;
 import org.junit.Assert;
 
+import com.utils.ConfigReader;
+
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -12,7 +14,7 @@ import io.restassured.response.Response;
 public class GetMessageCount {
 
 	private Response response;
-	private static final String BASE_URL = "https://automationintesting.online/message/count";
+	private static final String BASE_URL = ConfigReader.getBaseUrl() + "/message/count";
 	JSONObject body = new JSONObject();
 
 	@When("I send a GET request to fetch number of messages")

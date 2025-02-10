@@ -5,6 +5,8 @@ import java.util.List;
 import org.json.JSONObject;
 import org.junit.Assert;
 
+import com.utils.ConfigReader;
+
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
@@ -12,7 +14,7 @@ import io.restassured.response.Response;
 
 public class GetMessages {
 	private Response response;
-	private static final String BASE_URL = "https://automationintesting.online/message/";
+	private static final String BASE_URL = ConfigReader.getBaseUrl() + "/message/";
 	JSONObject body = new JSONObject();
 
 	@When("I send a GET request to fetch all messages")

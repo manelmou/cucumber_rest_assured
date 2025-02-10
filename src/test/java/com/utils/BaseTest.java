@@ -11,6 +11,7 @@ import io.restassured.response.Response;
 
 public class BaseTest {
 	private Response response;
+	private static String authToken;
 
 	protected Response createMessage() {
 		// Create JSON body
@@ -29,9 +30,9 @@ public class BaseTest {
 		return response;
 	}
 
-	protected String getToken() {
+	// method to authenticate
+	public static void authenticate() {
 
-		// Get the token
 		Map<String, String> credentials = new HashMap<>();
 		credentials.put("username", ConfigReader.getUsername());
 		credentials.put("password", ConfigReader.getPassword());
@@ -52,9 +53,17 @@ public class BaseTest {
 		}
 
 		// Extract token from cookie
-		String token = rawCookie.split("token=")[1].split(";")[0];
-		System.out.println("Extracted Token: " + token);
-		return token;
+		authToken = rawCookie.split("token=")[1].split(";")[0];
+		System.out.println("Extracted Token: " + authToken);
+	}
+
+	// static method to return the unique token
+	public static String getToken() {
+		// if we don't have a token access
+		if (authToken == null) {
+			authenticate();
+		}
+		return authToken;
 	}
 
 }

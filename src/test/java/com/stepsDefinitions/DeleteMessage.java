@@ -3,8 +3,8 @@ package com.stepsDefinitions;
 import org.junit.Assert;
 
 import com.utils.BaseTest;
+import com.utils.ConfigReader;
 
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -15,14 +15,7 @@ public class DeleteMessage extends BaseTest {
 
 	private Response deleteResponse;
 	private Response responseCreate;
-	private static final String BASE_URL = "https://automationintesting.online";
 	private String messageId;
-	private String token;
-
-	@Before
-	public void setUp() {
-		token = getToken();
-	}
 
 	@Given("I have a message ID to delete")
 	public void i_have_a_message_id_to_delete() {
@@ -35,7 +28,8 @@ public class DeleteMessage extends BaseTest {
 	public void i_send_a_delete_request_to_remove_the_message() {
 
 		// Use token in DELETE request
-		deleteResponse = RestAssured.given().cookie("token", token).when().delete(BASE_URL + "/message/" + messageId);
+		deleteResponse = RestAssured.given().cookie("token", getToken()).when()
+				.delete(ConfigReader.getBaseUrl() + "/message/" + messageId);
 
 		// Check if deleteResponse is valid
 		if (deleteResponse == null) {
@@ -52,8 +46,8 @@ public class DeleteMessage extends BaseTest {
 
 	@Then("the message should no longer exist")
 	public void the_message_should_no_longer_exist() {
-		Response getResponse = RestAssured.given().when().get(BASE_URL + "/message/" + messageId).then().log().all()
-				.extract().response();
+		Response getResponse = RestAssured.given().when().get(ConfigReader.getBaseUrl() + "/message/" + messageId)
+				.then().log().all().extract().response();
 		Assert.assertEquals("Expected status code 500 after deletion", 500, getResponse.getStatusCode());
 	}
 }
