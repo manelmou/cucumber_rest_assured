@@ -13,10 +13,11 @@ Feature: Message API Testing
 Examples:
     | messageid | name      		| email              	| phone       | subject      | description           									| status_code |
     | 2         | Jean Dupont  	| jeandupont@yahoo.fr | 01234567890 | New booking  | New booking room for B an B   	 				| 201 				|
-    | 3         | Lisa Dean  		| lisadean@gamil.com  | 09876543210 | Cancelling   | Cancelling reservation for next week   |	201				|
-    | 4         | Jean Dupont  	| jeandupont@yahoo.fr | 01234567890 | New booking  |  |400 |
-    | 5         | Lisa Dean  		| lisadean@gamil.com  | 000 | Cancelling   | Cancelling reservation for next week    |400 |
-    | 6         | Lisa Dean  		| lisadean  | 000 | Cancelling   | Cancelling reservation for next week    |400 |
+    | 3         | Lisa Dean  		| lisadean@gmail.com  | 09876543210 | Cancelling   | Cancelling reservation for next week   |	201					|
+    | 4         | Jean Dupont  	| jeandupont@yahoo.fr | 01234567890 | New booking  |  																			|	400					|
+    | 5         | Paul Dean  		| lisadean@gamil.com  | 000 				| Cancelling   | Cancelling reservation for next week   |	400					|
+    | 6         | Lisa Dean  		| lisadean  					| 01234567890 | Cancelling   | Cancelling reservation for next week   |	400 				|
+    | 7	        | 				  		| lisadean  					| 01234567890 | Cancelling   | Cancelling reservation for next week   |	400 				|
 
      
 

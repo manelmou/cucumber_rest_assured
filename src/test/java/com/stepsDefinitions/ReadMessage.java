@@ -32,7 +32,7 @@ public class ReadMessage extends BaseTest {
 
 	}
 
-	@Then("the response should contain the correct message to read")
+	@Then("the response status should be correct")
 	public void the_response_status_should_be_202() {
 		Assert.assertEquals("Expected status code 202", 202, readResponse.getStatusCode());
 	}
