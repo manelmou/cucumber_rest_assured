@@ -11,7 +11,6 @@ import io.restassured.response.Response;
 
 public class BaseTest {
 	private Response response;
-	private static final String BASE_URL = "https://automationintesting.online";
 
 	protected Response createMessage() {
 		// Create JSON body
@@ -25,7 +24,8 @@ public class BaseTest {
 				"Thank you for the nice hotel and the nice room, we really enjoyed our time in your Bed and Breakfast");
 
 		// Get response
-		response = RestAssured.given().contentType(ContentType.JSON).body(body.toString()).post(BASE_URL + "/message/");
+		response = RestAssured.given().contentType(ContentType.JSON).body(body.toString())
+				.post(ConfigReader.getBaseUrl() + "/message/");
 		return response;
 	}
 
@@ -33,11 +33,11 @@ public class BaseTest {
 
 		// Get the token
 		Map<String, String> credentials = new HashMap<>();
-		credentials.put("username", "admin");
-		credentials.put("password", "password");
+		credentials.put("username", ConfigReader.getUsername());
+		credentials.put("password", ConfigReader.getPassword());
 
 		Response authResponse = RestAssured.given().contentType("application/json").body(credentials)
-				.post(BASE_URL + "/auth/login");
+				.post(ConfigReader.getBaseUrl() + "/auth/login");
 
 		// Check if authResponse is valid
 		if (authResponse == null) {
