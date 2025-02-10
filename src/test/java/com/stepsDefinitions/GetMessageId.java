@@ -5,7 +5,6 @@ import org.junit.Assert;
 
 import com.utils.BaseTest;
 
-import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -19,13 +18,9 @@ public class GetMessageId extends BaseTest {
 	private Response responseCreate;
 	JSONObject body = new JSONObject();
 
-	@Before
-	public void setUp() {
-		responseCreate = createMessage();
-	}
-
 	@Given("I have a valid message ID")
 	public void i_have_a_valid_message_id() {
+		responseCreate = createMessage();
 		messageId = responseCreate.jsonPath().getString("messageid");
 		System.out.println(messageId);
 	}

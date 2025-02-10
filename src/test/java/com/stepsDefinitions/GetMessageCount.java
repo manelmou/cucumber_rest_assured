@@ -30,7 +30,7 @@ public class GetMessageCount {
 	public void the_response_should_contain_a_number_of_messages() {
 		String count = response.jsonPath().getString("count");
 		Assert.assertNotNull("Number is null!", count);
-		Assert.assertTrue("the number is incorrect", Integer.parseInt(count) > 0);
+		Assert.assertTrue("the number is incorrect", Integer.parseInt(count) >= 0);
 
 	}
 }

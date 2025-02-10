@@ -21,13 +21,12 @@ public class DeleteMessage extends BaseTest {
 
 	@Before
 	public void setUp() {
-		responseCreate = createMessage();
 		token = getToken();
 	}
 
 	@Given("I have a message ID to delete")
 	public void i_have_a_message_id_to_delete() {
-
+		responseCreate = createMessage();
 		messageId = responseCreate.jsonPath().getString("messageid");
 		System.out.println(messageId);
 	}

@@ -17,7 +17,7 @@ public class MessageControler {
 
 	JSONObject body = new JSONObject();
 
-	@Given("I have a valid message payload with {string} and {string} and {string} and {string} and {string} and {string}")
+	@Given("I have a message payload with {string} and {string} and {string} and {string} and {string} and {string}")
 	public void i_have_a_valid_message_payload(String messageid, String name, String email, String phone,
 			String subject, String description) {
 		body.put("messageid", messageid);
@@ -37,9 +37,10 @@ public class MessageControler {
 		System.out.println("Response: " + response.getBody().asString());
 	}
 
-	@Then("the response status should be 201")
-	public void the_response_status_should_be_201() {
-		Assert.assertEquals("Expected status code 201", 201, response.getStatusCode());
+	@Then("the response status should be {string}")
+	public void the_response_status_should_be_201(String expectedStatusCode) {
+		Assert.assertEquals("Expected status code not correct !", Integer.parseInt(expectedStatusCode),
+				response.getStatusCode());
 	}
 
 }
