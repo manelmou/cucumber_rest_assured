@@ -41,7 +41,7 @@ public class ReadMessage extends BaseTest {
 	}
 
 	@Then("the response should contain the correct message to read")
-	public void the_response_status_should_be_200() {
+	public void the_response_status_should_be_202() {
 		Assert.assertEquals("Expected status code 202", 202, readResponse.getStatusCode());
 	}
 

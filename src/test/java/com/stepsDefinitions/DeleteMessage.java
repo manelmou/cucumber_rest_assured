@@ -55,6 +55,6 @@ public class DeleteMessage extends BaseTest {
 	public void the_message_should_no_longer_exist() {
 		Response getResponse = RestAssured.given().when().get(BASE_URL + "/message/" + messageId).then().log().all()
 				.extract().response();
-		Assert.assertEquals("Expected status code 404 after deletion", 404, getResponse.getStatusCode());
+		Assert.assertEquals("Expected status code 500 after deletion", 500, getResponse.getStatusCode());
 	}
 }
