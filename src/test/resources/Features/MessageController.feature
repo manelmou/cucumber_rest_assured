@@ -16,6 +16,17 @@ Examples:
     | 2         | Lisa Dean  		| lisadean@gamil.com  | 09876543210 | Cancelling   | Cancelling reservation for next week    |
 
       
+      
+ Scenario Outline: Create a new  invalide message 
+    Given I have an  invalid message payload with '<messageid>' and '<name>' and '<email>' and '<phone>' and '<subject>' and '<description>'
+    When I send a POST request to create a message 
+    Then the response status should be 400
+    
+Examples:
+    | messageid | name      		| email              	| phone       | subject      | description            |
+    | 1         | Jean Dupont  	| jeandupont@yahoo.fr | 01234567890 | New booking  |    |
+    | 2         | Lisa Dean  		| lisadean@gamil.com  | 000 | Cancelling   | Cancelling reservation for next week    |
+    | 2         | Lisa Dean  		| lisadean  | 000 | Cancelling   | Cancelling reservation for next week    |
 
 
 
